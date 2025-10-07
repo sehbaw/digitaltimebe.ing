@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: 'Inclusive Sans';
-  src: url('./InclusiveSans-Regular.ttf') format('truetype');
+  src: url('InclusiveSans-Regular.ttf') format('truetype');
 }
 
 
