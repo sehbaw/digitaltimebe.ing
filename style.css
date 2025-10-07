@@ -73,8 +73,8 @@ body {
 }
 
 @font-face {
-    font-family:inclusive-sans;
-    src: url("InclusiveSans-Regular.tff");
+    font-family: Inclusive-sans;
+    src: url("InclusiveSans-Regular.ttf");
 }
 
 .sidenav {
