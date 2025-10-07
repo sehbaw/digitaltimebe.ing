@@ -14,7 +14,7 @@ body {
 
 @font-face {
     font-family:inclusive-sans;
-    src: url("fonts/InclusiveSans-Regular.tff");
+    src: url("InclusiveSans-Regular.tff");
 }
 
 .sidenav {
