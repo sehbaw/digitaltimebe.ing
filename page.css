@@ -13,9 +13,10 @@ body {
 }
 
 @font-face {
-    font-family:inclusive-sans;
-    src: url("InclusiveSans-Regular.ttf");
+  font-family: 'Inclusive Sans';
+  src: url('./InclusiveSans-Regular.ttf') format('truetype');
 }
+
 
 .sidenav {
     height: 90%;
