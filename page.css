@@ -1,0 +1,60 @@
+@media screen and (max-height:450px) {
+    .sidenav {padding-top:15px;}
+    .sidenav a {font-size:18px;}
+}
+
+body {
+    background-color: rgb(90, 190, 239);
+    /* rgb(0, 170, 255,0.5);*/
+   /* font-family: inclusive-sans;
+    -webkit-animation: bgcolor 20s ease-in-out infinite;
+    animation: bgcolor 20s ease-in-out infinite;  */
+    font-family: "Inclusive Sans", sans-serif !important;
+}
+
+@font-face {
+    font-family:inclusive-sans;
+    src: url("InclusiveSans-Regular.tff");
+}
+
+.sidenav {
+    height: 90%;
+    width:250px;
+    position:fixed;
+    z-index:1;
+    top:0;
+    left:0;
+    padding-left:2px;
+   /* background-image: linear-gradient(blue, pink, purple); */
+    opacity: 0.7;
+   /* overflow-x: hidden; */
+    padding-top:10px;
+   /* outline: 1px solid black;*/
+    font-family: "Inclusive Sans";
+
+}
+
+
+
+.sidenav a {
+    padding: 12px 27px 12px 20px;
+    text-decoration: underline;
+    font-size: 20px;
+    color: white;
+    display:block;
+}
+
+.sidenav a:hover {
+    color: black;
+}
+
+.main {
+    /*margin-left: 160px;*/
+    padding: 10px;
+    margin: auto;
+   /* display: block;*/
+    width: 50%;
+    text-align:center;
+
+}
+

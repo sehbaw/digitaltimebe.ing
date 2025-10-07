@@ -1,0 +1,179 @@
+.visual-container {
+display:flex;
+flex:2;
+justify-content:center
+}
+/*.montserrat {
+  font-family: "Montserrat", sans-serif; /*mhmm font?? 
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} 
+
+
+/* i dont want any sidebar 
+.sidenav{
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left:0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 20px;
+    outline: solid 5px white;
+}
+
+.sidenav a {
+    padding:6px 8px 6px 16px;
+    text-decoration:none;
+    font-size: 25px;
+    color: purple;
+    display:block
+}
+
+/*@ media screen and max (max-height:450px) {
+    .sidenav {padding-top:15px;}
+    .sidenav a {font-size: 18px;}
+} */
+
+/*main {
+   margin-left:160px;
+   padding: 0px 16px;
+
+} 
+body {
+    background-color: rgb(0, 170, 255)
+}
+box {
+    outline: white;
+}
+
+p {
+    color:white;
+}
+
+
+} 
+*/
+/* responsive design necessary for phone view babes! */
+/**  {
+    box-sizing:border-box;
+}*/
+body {
+    /*background-color: rgb(90, 190, 239);*/
+    background-color: rbg(70,170,219);
+    /* rgb(0, 170, 255,0.5);*/
+   /* font-family: inclusive-sans;
+    -webkit-animation: bgcolor 20s ease-in-out infinite;
+    animation: bgcolor 20s ease-in-out infinite;  */
+    font-family: "Inclusive Sans", sans-serif !important;
+}
+
+@font-face {
+    font-family:inclusive-sans;
+    src: url("InclusiveSans-Regular.tff");
+}
+
+.sidenav {
+    height: 90%;
+    width:250px;
+    position:fixed;
+    z-index:1;
+    top:0;
+    left:0;
+    padding-left:2px;
+   /* background-image: linear-gradient(blue, pink, purple); */
+    opacity: 0.7;
+   /* overflow-x: hidden; */
+    padding-top:10px;
+   /* outline: 1px solid black;*/
+    font-family: "Inclusive Sans";
+
+}
+
+
+
+.sidenav a {
+    padding: 12px 27px 12px 20px;
+    text-decoration: underline;
+    font-size: 20px;
+    color: white;
+    display:block;
+}
+
+.sidenav a:hover {
+    color: black;
+}
+
+.main {
+    /*margin-left: 160px;*/
+    padding: 10px;
+    margin: auto;
+   /* display: block;*/
+    width: 50%;
+    text-align:center;
+
+}
+
+@media screen and (max-height:450px) {
+    .sidenav {padding-top:15px;}
+    .sidenav a {font-size:18px;}
+}
+
+
+canvas {
+    padding: 10px;
+    margin: auto;
+    display: block;
+    width: -500px;
+} 
+
+footer {
+    position: fixed;
+    left: 100;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.grid {
+    display:grid;
+}
+
+
+
+
+  .popup-info {
+  position: fixed;       /* So it stays in place even on scroll */
+  top: 20px;              /* Distance from top */
+  right: 20px;            /* Distance from right */
+  width: 300px;
+  height: auto;
+  background-color: #e8eae6;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: none;  
+  }
+
+  .close-btn {
+       position: absolute;
+            right: 20px;
+            top: 15px;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            padding: 4px;
+
+  }
+
+  #top-corner-btn {
+    float:right;
+    top:0;
+    right: 0;
+  }
