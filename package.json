@@ -1,0 +1,11 @@
+{
+  "name": "creative portfolio",
+  "version": "1.0.0",
+  "description": "A simple static website",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
