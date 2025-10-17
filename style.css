@@ -1,8 +1,32 @@
 .visual-container {
-display:flex;
-flex:2;
-justify-content:center
+    display: flex;
+    justify-content: center;
 }
+
+#myCanvas {
+    top: 0;
+    right: 0;
+}
+
+#myCanvas1 {
+    top: 0;
+    left: 0;
+}
+
+#myCanvas2 {
+    bottom: 0;
+    right: 0;
+}
+
+#myCanvas3 {
+    bottom: 0;
+    left: 0;
+}
+
+
+
+
+
 /*.montserrat {
   font-family: "Montserrat", sans-serif; /*mhmm font?? 
   font-optical-sizing: auto;
@@ -63,10 +87,9 @@ p {
     box-sizing:border-box;
 }*/
 body {
-    /*background-color: rgb(90, 190, 239);*/
-    background-color: rbg(70,170,219);
+    background-color: #000000;
     /* rgb(0, 170, 255,0.5);*/
-   /* font-family: inclusive-sans;
+    /* font-family: inclusive-sans;
     -webkit-animation: bgcolor 20s ease-in-out infinite;
     animation: bgcolor 20s ease-in-out infinite;  */
     font-family: "Inclusive Sans", sans-serif !important;
@@ -79,19 +102,19 @@ body {
 
 .sidenav {
     height: 90%;
-    width:250px;
-    position:fixed;
-    z-index:1;
-    top:0;
-    left:0;
-    padding-left:2px;
-   /* background-image: linear-gradient(blue, pink, purple); */
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-left: 2px;
+    /* background-image: linear-gradient(blue, pink, purple); */
     opacity: 0.7;
-   /* overflow-x: hidden; */
-    padding-top:10px;
-   /* outline: 1px solid black;*/
+    /* overflow-x: hidden; */
+    padding-top: 10px;
+    /* outline: 1px solid black;*/
     font-family: "Inclusive Sans";
-
+    color: white;
 }
 
 
@@ -101,26 +124,32 @@ body {
     text-decoration: underline;
     font-size: 20px;
     color: white;
-    display:block;
+    display: block;
 }
 
 .sidenav a:hover {
-    color: black;
+    color: lightskyblue;
 }
 
 .main {
     /*margin-left: 160px;*/
     padding: 10px;
     margin: auto;
-   /* display: block;*/
+    /* display: block;*/
     width: 50%;
-    text-align:center;
+    text-align: center;
+    color: white;
 
 }
 
 @media screen and (max-height:450px) {
-    .sidenav {padding-top:15px;}
-    .sidenav a {font-size:18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 
@@ -129,7 +158,7 @@ canvas {
     margin: auto;
     display: block;
     width: -500px;
-} 
+}
 
 footer {
     position: fixed;
@@ -141,39 +170,41 @@ footer {
 }
 
 .grid {
-    display:grid;
+    display: grid;
 }
 
 
 
 
-  .popup-info {
-  position: fixed;       /* So it stays in place even on scroll */
-  top: 20px;              /* Distance from top */
-  right: 20px;            /* Distance from right */
-  width: 300px;
-  height: auto;
-  background-color: #e8eae6;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  display: none;  
-  }
+.popup-info {
+    position: fixed;
+    /* So it stays in place even on scroll */
+    top: 20px;
+    /* Distance from top */
+    right: 20px;
+    /* Distance from right */
+    width: 300px;
+    height: auto;
+    background-color: #e8eae6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: none;
+}
 
-  .close-btn {
-       position: absolute;
-            right: 20px;
-            top: 15px;
-            background-color: black;
-            color: white;
-            border-radius: 50%;
-            padding: 4px;
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
 
-  }
+}
 
-  #top-corner-btn {
-    float:right;
-    top:0;
+#top-corner-btn {
+    float: right;
     right: 0;
-  }
+}
