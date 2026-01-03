@@ -1,31 +1,51 @@
-.visual-container {
+/*.visual-container {
     display: flex;
     justify-content: center;
-}
+}*/
 
 #myCanvas {
-    top: 0;
-    right: 0;
+    /* top: 0;
+    right: 0;*/
+    margin: 0;
+    padding: 0;
+    border-radius:50%;
 }
 
 #myCanvas1 {
     top: 0;
-    left: 0;
+    right: 0;
+    padding: 10px;
+    position: absolute;
+    border-radius: 50%;
 }
 
 #myCanvas2 {
     bottom: 0;
-    right: 0;
+    position: absolute;
+    border-radius: 50%;
 }
 
 #myCanvas3 {
     bottom: 0;
-    left: 0;
+    right: 0;
+    position: absolute;
+    border-radius: 50%;
+
+}
+
+#myCanvas4{
+    bottom: 100px;
+    right: 350px;
+    position: absolute;
+    border-radius: 50%;
+
 }
 
 
 
-
+p {
+    color:white;
+}
 
 /*.montserrat {
   font-family: "Montserrat", sans-serif; /*mhmm font?? 
@@ -83,9 +103,10 @@ p {
 } 
 */
 /* responsive design necessary for phone view babes! */
-/**  {
-    box-sizing:border-box;
+/* {
+    box-sizing: border-box;
 }*/
+
 body {
     background-color: #000000;
     /* rgb(0, 170, 255,0.5);*/
@@ -101,20 +122,24 @@ body {
 }
 
 .sidenav {
-    height: 90%;
-    width: 250px;
+    height: 60%;
+    width: 350px;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 150px;
     left: 0;
-    padding-left: 2px;
+    margin: 10px;
+    /*padding-left: 1px;*/
     /* background-image: linear-gradient(blue, pink, purple); */
-    opacity: 0.7;
-    /* overflow-x: hidden; */
+    /*opacity: 0.7; */
+    overflow-x: hidden;
     padding-top: 10px;
-    /* outline: 1px solid black;*/
+   /* outline: 1px solid white; */
     font-family: "Inclusive Sans";
     color: white;
+    text-align: left;
+    white-space: nowrap;
+    
 }
 
 
@@ -124,7 +149,6 @@ body {
     text-decoration: underline;
     font-size: 20px;
     color: white;
-    display: block;
 }
 
 .sidenav a:hover {
@@ -132,79 +156,93 @@ body {
 }
 
 .main {
-    /*margin-left: 160px;*/
-    padding: 10px;
+    margin-left: 160px;
+    /*padding: 10px; */
     margin: auto;
-    /* display: block;*/
-    width: 50%;
-    text-align: center;
-    color: white;
+    /* display: block;
+width: 50%;
+text-align: center;
+color: white;
 
 }
 
 @media screen and (max-height:450px) {
-    .sidenav {
+    /* .sidenav {
         padding-top: 15px;
-    }
+    }*/
 
-    .sidenav a {
+    /*  .sidenav a {
         font-size: 18px;
     }
-}
+}*/
 
 
-canvas {
+    /*canvas {
     padding: 10px;
     margin: auto;
     display: block;
     width: -500px;
-}
+}*/
 
-footer {
-    position: fixed;
-    left: 100;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-}
+    footer {
+        position: fixed;
+        left: 100;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
 
-.grid {
-    display: grid;
-}
-
-
+    .grid {
+        display: grid;
+    }
 
 
-.popup-info {
-    position: fixed;
-    /* So it stays in place even on scroll */
-    top: 20px;
-    /* Distance from top */
-    right: 20px;
-    /* Distance from right */
-    width: 300px;
-    height: auto;
-    background-color: #e8eae6;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    display: none;
-}
 
-.close-btn {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    background-color: black;
-    color: white;
-    border-radius: 50%;
-    padding: 4px;
 
-}
+    .popup-info {
+        position: fixed;
+        /* So it stays in place even on scroll */
+        top: 20px;
+        /* Distance from top */
+        right: 20px;
+        /* Distance from right */
+        width: 300px;
+        height: auto;
+        background-color: #e8eae6;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        display: none;
+    }
 
-#top-corner-btn {
-    float: right;
-    right: 0;
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        padding: 4px;
+
+    }
+
+    #top-corner-btn {
+        float: right;
+        right: 0;
+        margin: 40px;
+    }
+
+    .work-tings {
+        display: flex;
+    }
+
+    #col1,
+    #col2 {
+        max-width: 45%;
+        margin-right: 1%;
+    }
+
+    .other-btn {}
 }
