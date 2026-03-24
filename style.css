@@ -3,6 +3,9 @@
     justify-content: center;
 }*/
 
+* {
+    font-family: "inclusive-sans";
+}
 #myCanvas {
     /* top: 0;
     right: 0;*/
@@ -117,13 +120,23 @@ body {
 }
 
 @font-face {
-    font-family: Inclusive-sans;
+    font-family: inclusive-sans;
     src: url("InclusiveSans-Regular.ttf");
 }
+.main-container {
+    display:block;
+    margin: 0 auto;
+   
+}
 
+
+#manifesto-placement{
+    display:block;
+    margin: 0 auto;
+}
 .sidenav {
     height: 60%;
-    width: 350px;
+    width: 300px;
     position: fixed;
     z-index: 1;
     top: 150px;
@@ -139,6 +152,7 @@ body {
     color: white;
     text-align: left;
     white-space: nowrap;
+    gap: 30px;
     
 }
 
@@ -146,7 +160,7 @@ body {
 
 .sidenav a {
     padding: 12px 27px 12px 20px;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 20px;
     color: white;
 }
@@ -155,10 +169,10 @@ body {
     color: lightskyblue;
 }
 
-.main {
+/*.main {
     margin-left: 160px;
     /*padding: 10px; */
-    margin: auto;
+   /* margin: auto; */
     /* display: block;
 width: 50%;
 text-align: center;
@@ -244,5 +258,32 @@ color: white;
         margin-right: 1%;
     }
 
-    .other-btn {}
+/* taken frpm alicia guo's website since i like it alot haha */
+
+/* also really like spencer chang's */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 60%;
+    padding: 0 10px;
+   /* justify-content: space-between; */
+}
+
+.main-content {
+  /* slightly tighter top padding so the main title sits closer to the roof */
+  padding: 0.5em 2em 1.5em 1em;
+  overflow-y: auto;
+  max-width: 95%;
+  margin: 0 auto;
+  color:white;
+}
+
+.right-panel {
+  padding: 1em;
+  margin: 1em;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }

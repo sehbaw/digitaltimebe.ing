@@ -8,6 +8,36 @@
   <title>let's get digital</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /*spray paint reveal*/
+    #display-canvas{
+      display: block;
+      cursor: crosshair;
+      touch-action: none;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      max-width: 1000px;
+      width: 100%;
+      height: 600px;
+    }
+      .canvas-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Changed from center */
+      min-height: 100vh;
+      padding-top: 50px; /* Less padding on top */
+      padding-bottom: 100px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+    /*popup to let user know to spray paint*/
+    
+
+    /* popup to say hey this site is a work in progress and well so am I  <3 */
+    .popup-placement {
+      position:fixed;
+      top:50%;
+      left:
+
+    } 
 
   </style>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -22,7 +52,11 @@
 </head>
 
 <body>
-
+<script> 
+  function myPopup(){
+    alert("just like me, this site is neverending work in progress <3");
+  }
+</script>
   <!--   <h1 align="center"> let's get digital!!!</h1> -->
  <!-- <div id="top-corner-btn">
     <button onclick="togglePopup()"> click me please! </button>
@@ -104,23 +138,26 @@
 
 
   <br>
-  <!--<div class="main">
+  <!--<div class="main">=
 
   </div>-->
 
-  <div class="sidenav">
+  <div class="sidebar">  <!-- was originally sidenav class but lets try something else-->
 
    <!--<p style="padding:10px"><b><a href="about">about</a>|<a href="manifesto">manifesto</a></b></p>-->
-   <div><p style="display: inline;"><a href="pages\about">about</a> | <a href="manifesto">manifesto</a></p></div>
-   <div>
-   <a href="pages/livecoding"> livecoding</a><br>
-   <a href="pages/design"> design </a><br>
-   <a href="pages/p5js"> p5js </a><br>
-   <a href="visuals">visuals</a>
-   </div>
+   <div><p style="display: inline;"><a href="pages/about">about</a> | <a href="pages/manifesto">manifesto</a> | <a href="">CV</a></p></div>
+   <!-- took out the <br> because used gap instead in styling-->
+   <a href="pages/livecoding"> livecoding</a>
+   <a href="pages/design"> design </a>
+  <!-- <a href="pages/p5js"> p5js </a><br>--> 
+   <a href="pages/visuals">visuals</a>
+   <a href="pages/graphic-design-is-my-passion">graphic design is my passion</a>
+   <a href="pages/swan-studios">swan studios</a>
+
+   
 
   </div>
-  <div class="work-tings">
+ <!-- <div class="work-tings">
     <div id="col1">
       <a href=""></a>
       <a href=""></a>
@@ -132,9 +169,17 @@
   </div>
 
 
-  </div> 
+  </div> -->
 
-  <div class="main-container"></div> 
+  <div class="main-content"><center>
+    swan (she/they) is an artist, she thinks. she never really considered art as something that she could pursue, despite being obsessed with the beauty of it her entire life. 
+      swan can be considered a media artist, but would rather not confine herself to labels, at least not one she prescribes herself. 
+      unfortunately, she does believe that being a jack of trades is much more important than being a master of one so that is why she is a bit all over the place - but maybe that is her charm. 
+
+        * there is some fanart here, don't be weird about it. i find it astounding we live in a world that
+        someone can create such a work that invokes so much in a person that they themselves feel inspired and create.
+ </center>
+      </div> 
   <!--<div id="info-btn">
     <button onclick="togglePopup()"> click me please! </button>
     <div class="popup-info">
@@ -156,12 +201,227 @@
       }
     </script>
   </div>-->
-  <div> 
-   <p style="text-align: center;"> progress depends on us changing the world to fit us. <br> not the other way around.</p>
   </div>
-</body>
-<div>
+ <!-- <div> 
+   <p style="text-align: center;"> progress depends on us changing the world to fit us. <br> not the other way around.</p>
+  </div>-->
+    <div class="canvas-wrapper">
+    <canvas id="display-canvas"></canvas>
+  </div>
+
   <footer> made with css, html, js  &hearts; </footer>
 </div>
+
+</body>
+<!-- sometimes stuff eats in ur head but then you execute and just no...unless I did a shitty job of executing which is more like it tho!-->
+<!--<script>
+  window.addEventListener("DOMContentLoaded", function(){
+  const spray_particles=80;
+  const phrase =  "progress depends on us changing the world not the other way around";
+  const brush = 70;
+  const COLOR = "white";
+
+
+  // elements necessary
+  const displayCanvas = document.getElementById('display-canvas');
+  const displayCtx = displayCanvas.getContext('2d');
+  
+
+  //offscreen canvas...need to look more about this because this is just undefined 
+  const textCanvas = document.createElement("canvas");
+  const textCtx    = textCanvas.getContext("2d");
+  const maskCanvas = document.createElement("canvas");
+  const maskCtx    = maskCanvas.getContext("2d");
+
+  // set the font
+  let fontSize = 50;
+  //textCtx.font = `900 ${fontSize}px "Arial Black", Impact, sans-serif`;
+
+  //state for position
+  let isDrawing = false;
+  let lastPos = null;
+
+
+  //gaussian and wrappingtext to showcase
+  function gRandom() {
+  let u=0, v= 0;
+  while (u==0) u = Math.random();
+  while (v==0) v = Math.random();
+  return Math.sqrt(-2.0*Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  }
+
+  function wrapText(ctx, words, maxWidth) {
+    const lines = [];
+    let currentLine = "";
+    for (const word of words) {
+      const test = currentLine ? currentLine + " "  + word : word;
+      if (ctx.measureText(test).width > maxWidth && currentLine) {
+        lines.push(currentLine);
+        currentLine = word;
+  } else {
+    currentLine = test;
+}
+}
+if (currentLine) lines.push(currentLine);
+return lines;
+}
+
+// hidden text 
+function renderText(w, h) {
+  textCanvas.width = w;
+  textCanvas.height = h;
+  textCtx.clearRect(0,0,w,h);
+
+  textCtx.font = `900 ${fontSize}px`;
+
+  const words = phrase.split(/\s+/).filter(Boolean);
+  if (!words.length) return;
+
+  const padding = 60;
+  const maxW = w - padding *2;
+  const maxH = h - padding * 2;
+
+
+  // alignment
+  textCtx.textAlign = "center";
+  textCtx.textBaseline = "middle";
+
+  const lines = wrapText(textCtx, words, maxW);
+      const lineH = fontSize * 1.15;
+      const totalH = lines.length * lineH;
+      const startY = (h - totalH) / 2 + lineH / 2;
+
+      for (let i = 0; i < lines.length; i++) {
+        const y = startY + i * lineH;
+        textCtx.fillStyle   = COLOR;
+        textCtx.globalAlpha = 1;
+        textCtx.shadowColor = COLOR;
+        textCtx.shadowBlur  = 8;
+        textCtx.fillText(lines[i], w / 2, y);
+        textCtx.shadowBlur = 0;
+        textCtx.fillText(lines[i], w / 2, y);
+      }
+
+
+    }
+
+    
+    function resetMask(w,h) {
+      maskCanvas.width = w;
+      maskCanvas.height = h;
+      maskCtx.fillStyle = "#000000";
+      maskCtx.fillRect(0,0,w,h);
+    }
+
+    //spray paint - dealing w/the mask
+    function sprayMask(x,y){
+      const brushSize = brush;
+      maskCtx.globalCompositeOperation = "destination-out";
+
+      //main spray 
+      for(let i=0; i < spray_particles; i++){
+        const angle = Math.random() * Math.PI * 2;
+        const gDist = Math.abs(gRandom()) * 0.45;
+        const distance = gDist * brushSize;
+        const px = x + Math.cos(angle) * distance;
+        const py = y + Math.sin(angle) * distance;
+        const norm = distance/brushSize;
+        const center = 1 - norm;
+        const dotSize =   Math.max(0.5, center * 5 + Math.random() * 2);
+        const alpha = Math.max(0.05, center * 0.6 + Math.random() * 0.2);
+
+        maskCtx.globalAlpha = alpha;
+        maskCtx.beginPath();
+        maskCtx.arc(px,py,dotSize, 0, Math.PI * 2);
+        maskCtx.fill();
+      }
+
+      // mist 
+      for(let i=0; i < 15 ; i++){
+        const angle = Math.random() * Math.PI * 2;
+        const distance = brushSize * (0.6 + Math.random() * 0.7);
+        const px = x + Math.cos(angle) * distance;
+        const py = y + Math.sin(angle) * distance;
+        maskCtx.globalAlpha = 0.03 + Math.random() * 0.08;
+        maskCtx.beginPath();
+        maskCtx.arc(px,py, 0.5 + Math.random() * 1, 0, Math.PI * 2);
+        maskCtx.fill();
+      }
+      maskCtx.globalCompositeOperation = "source-over";
+      maskCtx.globalAlpha = 1;
+    }
+
+    function interpolate(x0,y0,x1,y1){
+      const dx = x1 - x0;
+      const dy = y1 - y0;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const steps = Math.max(1, Math.floor(dist / 6));
+      for (let i = 0; i <= steps; i++){
+        const t = i / steps;
+        sprayMask(x0 + dx * t, y0 + dy * t);
+      }
+    }
+
+      //text where mask is
+      function compositeRender() {
+      const w = displayCanvas.width;
+      const h = displayCanvas.height;
+      displayCtx.clearRect(0, 0, w, h);
+      displayCtx.globalCompositeOperation = "source-over";
+      displayCtx.drawImage(textCanvas, 0, 0);
+      displayCtx.globalCompositeOperation = "destination-out";
+      displayCtx.drawImage(maskCanvas, 0, 0);
+      displayCtx.globalCompositeOperation = "source-over";
+    }
+
+    // resize window
+    function resize() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      displayCanvas.width  = w;
+      displayCanvas.height = h;
+      renderText(w, h);
+      resetMask(w, h);
+    }
+
+    // pointer events // little janky
+    displayCanvas.addEventListener("pointerdown", function (e) {
+      isDrawing = true;
+      lastPos   = { x: e.clientX, y: e.clientY };
+      sprayMask(e.clientX, e.clientY);
+    //  if (hint) { hint.style.opacity = "0"; }
+    });
+
+    displayCanvas.addEventListener("pointermove", function (e) {
+      if (!isDrawing) return;
+      if (lastPos) {
+        interpolate(lastPos.x, lastPos.y, e.clientX, e.clientY);
+      } else {
+        sprayMask(e.clientX, e.clientY);
+      }
+      lastPos = { x: e.clientX, y: e.clientY };
+    });
+
+    window.addEventListener("pointerup", function () {
+      isDrawing = false;
+      lastPos   = null;
+    });
+
+    window.addEventListener("resize", resize);
+
+    // trying to get it to animate idk
+    function loop() {
+      compositeRender();
+      requestAnimationFrame(loop);
+    }
+
+    // initialize
+    resize();
+    requestAnimationFrame(loop);
+    
+  });
+
+</script> --> 
+<!-- end of the spray paint script but I am going to take it out anyways lol-->
 
 </html>
